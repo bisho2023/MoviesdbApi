@@ -1,0 +1,147 @@
+<div class="w-75 m-auto py-5">
+  <div *ngIf="error" class="alert alert-danger">
+    <p>{{ error }}</p>
+  </div>
+  <form
+    [formGroup]="registerForm"
+    (ngSubmit)="submitRegisterForm(registerForm)"
+  >
+    <div class="form-group my-3">
+      <label for="first_name" class="my-1">First name :</label>
+      <input
+        formControlName="first_name"
+        class="form-control"
+        type="text"
+        name=""
+        id="first_name"
+      />
+      <div
+        *ngIf="
+          registerForm.get('first_name')?.errors != null &&
+          registerForm.get('first_name')?.touched
+        "
+        class="alert my-2 alert-danger"
+      >
+        <p *ngIf="registerForm.get('first_name')?.errors?.['required']">
+          first name is required
+        </p>
+        <p *ngIf="registerForm.get('first_name')?.errors?.['minlength']">
+          first name is minLength 3
+        </p>
+        <p *ngIf="registerForm.get('first_name')?.errors?.['maxlength']">
+          first name is maxLength 10
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group my-3">
+      <label for="last_name" class="my-1">Last name :</label>
+      <input
+        formControlName="last_name"
+        class="form-control"
+        type="text"
+        name=""
+        id="last_name"
+      />
+      <div
+        *ngIf="
+          registerForm.get('last_name')?.errors != null &&
+          registerForm.get('last_name')?.touched
+        "
+        class="alert my-2 alert-danger"
+      >
+        <p *ngIf="registerForm.get('last_name')?.errors?.['required']">
+          last name is required
+        </p>
+        <p *ngIf="registerForm.get('last_name')?.errors?.['minlength']">
+          last name is minLength 3
+        </p>
+        <p *ngIf="registerForm.get('last_name')?.errors?.['maxlength']">
+          last name is maxLength 10
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group my-3">
+      <label for="age" class="my-1">Age :</label>
+      <input
+        formControlName="age"
+        class="form-control"
+        type="number"
+        name=""
+        id="age"
+      />
+      <div
+        *ngIf="
+          registerForm.get('age')?.errors != null &&
+          registerForm.get('age')?.touched
+        "
+        class="alert my-2 alert-danger"
+      >
+        <p *ngIf="registerForm.get('age')?.errors?.['required']">
+          age is required
+        </p>
+        <p *ngIf="registerForm.get('age')?.errors?.['min']">age is min 16</p>
+        <p *ngIf="registerForm.get('age')?.errors?.['max']">age is max 80</p>
+      </div>
+    </div>
+
+    <div class="form-group my-3">
+      <label for="email" class="my-1">Email :</label>
+      <input
+        formControlName="email"
+        class="form-control"
+        type="email"
+        name=""
+        id="email"
+      />
+      <div
+        *ngIf="
+          registerForm.get('email')?.errors != null &&
+          registerForm.get('email')?.touched
+        "
+        class="alert my-2 alert-danger"
+      >
+        <p *ngIf="registerForm.get('email')?.errors?.['required']">
+          email is required
+        </p>
+        <p *ngIf="registerForm.get('email')?.errors?.['email']">
+          email is invalid
+        </p>
+      </div>
+    </div>
+
+    <div class="form-group my-3">
+      <label for="password" class="my-1">Password :</label>
+      <input
+        formControlName="password"
+        class="form-control"
+        type="password"
+        name=""
+        id="password"
+      />
+      <div
+        *ngIf="
+          registerForm.get('password')?.errors != null &&
+          registerForm.get('password')?.touched
+        "
+        class="alert my-2 alert-danger"
+      >
+        <p *ngIf="registerForm.get('password')?.errors?.['required']">
+          Password is required
+        </p>
+        <!-- <p *ngIf="registerForm.get('password')?.errors?.['pattern']">
+          Password must start with an uppercase and at least 3 num
+        </p> -->
+      </div>
+    </div>
+
+    <button
+      [disabled]="registerForm.invalid"
+      class="btn btn-info"
+      type="submit"
+    >
+      Register
+    </button>
+  </form>
+</div>

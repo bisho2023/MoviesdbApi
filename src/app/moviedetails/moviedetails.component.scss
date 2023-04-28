@@ -1,0 +1,22 @@
+ul
+{
+  list-style: none;
+  display: flex;
+}
+.lead
+{
+  font-size: 18px;
+  font-weight: 100;
+  color: rgb(194, 191, 191);
+  letter-spacing: 2px;
+  line-height: 1.8;
+  word-spacing: 5px;
+}
+ul li
+{
+  margin: 0.5rem;
+  padding: 5px;
+  border-radius:10px ;
+  background-color: #24baef;
+  color: white;
+}

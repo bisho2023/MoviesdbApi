@@ -38,7 +38,7 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
   },
   {path:'register',component:RegisterComponent},
-  {path:'**',component:NotfoundComponent},
+  {path:'**',component:HomeComponent},
 
 ];
 
